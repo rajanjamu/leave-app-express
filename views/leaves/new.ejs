@@ -1,0 +1,48 @@
+<%- include('../partials/header') %> 
+
+<div class="ui container grid ">
+    <div class="column centered" style="max-width:375px">
+        <div class="ui segment">
+            <div class="ui huge header centered">Leave Application</div>
+
+            <form action="" class="ui form">
+                <div class="field">
+                    <label>From Date</label>
+                    <div class="ui left icon input">
+                        <i class="calendar icon"></i>
+                        <input type="date" name="leave[fromDate]" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>To Date</label>
+                    <div class="ui left icon input">
+                        <i class="calendar icon"></i>
+                        <input type="date" name="leave[toDate]" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Type</label>
+                    <select name="leave[type]" id="" required>
+                        <option value="Type">Select</option>
+                        <option value="Sick">Sick</option>
+                        <option value="Casual">Casual</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Reason</label>
+                    <div class="ui left icon input">
+                        <i class="question circle icon"></i>
+                        <input type="text" name="leave[reason]" required>
+                    </div>
+                </div>
+                <button class="ui fluid large submit button">Apply</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('../partials/footer') %> 
