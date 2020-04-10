@@ -1,64 +1,73 @@
 <%- include('../partials/header') %> 
 
-<div class="ui container grid" style="margin-top:0.6px">
-    <div class="column centered" style="max-width:375px; padding:0">
-        <div class="ui">
+<section id="employee-index">
+
+<div class="ui container grid">
+    <div class="column centered">
             
-            <div class="ui three item pointing attached menu">
+            <!-- <div class="ui three item pointing attached menu">
                 <a class="active item">
                     Pending
                     <div class="ui teal label">1</div>
                 </a>
                 <a class="item">Approved</a>
                 <a class="item">Rejected</a>
-            </div>
-            
-            <div class="ui attached padded segment">
-                <h3 class="ui header">
-                    <div class="content">
-                        Need to attend sister marriage
-                        <div class="sub header">
-                            <div class="ui olive horizontal label" style="margin-left:0">Casual</div>
-                            <%= Date(Date.now()).slice(0,10) %>
-                            - 
-                            <%= Date(Date.now()).slice(0,10) %>
-                        </div>
-                    </div>
-                </h3>
-            </div>
-            
-            <div class="ui attached padded segment">
-                <h3 class="ui header">
-                    <div class="content">
-                        Not feeling well
-                        <div class="sub header">
-                            <div class="ui orange horizontal label" style="margin-left:0">Sick</div>
-                            <%= Date(Date.now()).slice(0,10) %>
-                            - 
-                            <%= Date(Date.now()).slice(0,10) %>
-                        </div>
-                    </div>
-                </h3>
-            </div>
-              
-            <div class="ui attached padded segment">
-                <h3 class="ui header">
-                    <div class="content">
-                        Going on a summer vacation
-                        <div class="sub header">
-                            <div class="ui yellow horizontal label" style="margin-left:0">Other</div>
-                            <%= Date(Date.now()).slice(0,10) %>
-                            - 
-                            <%= Date(Date.now()).slice(0,10) %>
-                        </div>
-                    </div>
-                </h3>
-            </div>
+            </div> -->
 
+        <div class="ui attached padded segment">
+            <div class="ui relaxed divided list">
+                <div class="item">
+                    <div class="content">
+                    <h3 class="header">Need to attend sister marriage</h3>
+                    <p>
+                        <i class="calendar icon"></i>
+                        <%= Date(Date.now()).slice(0,10) %> -
+                        <%= Date(Date.now()).slice(0,10) %>
+                    </p>
+                    <div class="ui yellow horizontal label">Pending</div>
+                    <div class="ui horizontal label">Casual</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <div class="ui attached padded segment">
+            <div class="ui relaxed divided list">
+                <div class="item">
+                    <div class="content">
+                    <h3 class="header">Not feeling well</h3>
+                    <p>
+                        <i class="calendar icon"></i>
+                        <%= Date(Date.now()).slice(0,10) %> -
+                        <%= Date(Date.now()).slice(0,10) %>
+                    </p>
+                    <div class="ui teal horizontal label">Approved</div>
+                    <div class="ui horizontal label">Sick</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui attached padded segment">
+            <div class="ui relaxed divided list">
+                <div class="item">
+                    <div class="content">
+                    <h3 class="header">Going on a summer vacation</h3>
+                    <p>
+                        <i class="calendar icon"></i>
+                        <%= Date(Date.now()).slice(0,10) %> -
+                        <%= Date(Date.now()).slice(0,10) %>
+                    </p>
+                    <div class="ui orange horizontal label">Rejected</div>
+                    <div class="ui horizontal label">Other</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
+
+</section>
 
 <%- include('../partials/footer') %> 
