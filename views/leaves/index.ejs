@@ -1,5 +1,64 @@
 <%- include('../partials/header') %> 
 
-<h1>This is leave index page</h1>
+<div class="ui container grid" style="margin-top:0.6px">
+    <div class="column centered" style="max-width:375px; padding:0">
+        <div class="ui">
+            
+            <div class="ui three item pointing attached menu">
+                <a class="active item">
+                    Pending
+                    <div class="ui teal label">1</div>
+                </a>
+                <a class="item">Approved</a>
+                <a class="item">Rejected</a>
+            </div>
+            
+            <div class="ui attached padded segment">
+                <h3 class="ui header">
+                    <div class="content">
+                        Need to attend sister marriage
+                        <div class="sub header">
+                            <div class="ui olive horizontal label" style="margin-left:0">Casual</div>
+                            <%= Date(Date.now()).slice(0,10) %>
+                            - 
+                            <%= Date(Date.now()).slice(0,10) %>
+                        </div>
+                    </div>
+                </h3>
+            </div>
+            
+            <div class="ui attached padded segment">
+                <h3 class="ui header">
+                    <div class="content">
+                        Not feeling well
+                        <div class="sub header">
+                            <div class="ui orange horizontal label" style="margin-left:0">Sick</div>
+                            <%= Date(Date.now()).slice(0,10) %>
+                            - 
+                            <%= Date(Date.now()).slice(0,10) %>
+                        </div>
+                    </div>
+                </h3>
+            </div>
+              
+            <div class="ui attached padded segment">
+                <h3 class="ui header">
+                    <div class="content">
+                        Going on a summer vacation
+                        <div class="sub header">
+                            <div class="ui yellow horizontal label" style="margin-left:0">Other</div>
+                            <%= Date(Date.now()).slice(0,10) %>
+                            - 
+                            <%= Date(Date.now()).slice(0,10) %>
+                        </div>
+                    </div>
+                </h3>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
 
 <%- include('../partials/footer') %> 
