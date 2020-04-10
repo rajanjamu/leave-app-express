@@ -1,0 +1,19 @@
+{
+  "name": "leaveapp",
+  "version": "1.0.0",
+  "description": "Leave Application for NEXA Sikar on Express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajanjamu/leave-app-express.git"
+  },
+  "author": "Rajan Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajanjamu/leave-app-express/issues"
+  },
+  "homepage": "https://github.com/rajanjamu/leave-app-express#readme"
+}
