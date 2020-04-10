@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/rajanjamu/leave-app-express/issues"
   },
-  "homepage": "https://github.com/rajanjamu/leave-app-express#readme"
+  "homepage": "https://github.com/rajanjamu/leave-app-express#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1"
+  }
 }
