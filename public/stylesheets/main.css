@@ -7,3 +7,9 @@
     max-width: 375px;
     padding: 0;
 }
+
+.ui.cards>.card {
+    width: 100%;
+    margin-top: -1px;
+    margin-bottom: 0;
+}
