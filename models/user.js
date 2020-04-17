@@ -5,6 +5,7 @@ const userSchema = mongoose.Schema({
     username: String,
     password: String,
     admin: { type: Boolean, default: false },
+    status: { type: Boolean, default: false },
     leaves: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Leave'

@@ -19,10 +19,11 @@
     margin-bottom: 0;
 }
 
-#employee-index .buttons form {
+#manager-index .buttons form {
     width: 50%;
 }
 
-#employee-index .buttons form button {
+#manager-index .buttons form button {
     width: 100%;
+    border-radius: .28571429rem;
 }
