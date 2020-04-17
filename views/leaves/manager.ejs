@@ -37,7 +37,7 @@
                 
                 <div class="ui horizontal right floated tiny label"><%= leave.type %></div>
                 <div class="header">
-                  <%= leave.author.username %> 
+                  <%= leave.author.username.charAt(0).toUpperCase() + leave.author.username.slice(1) %> 
                 </div>
                 <div class="meta">
                     <i class="calendar icon"></i>
