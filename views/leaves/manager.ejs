@@ -1,15 +1,10 @@
 <%- include('../partials/header') %> 
 
-<section id="employee-index">
+<section id="manager-index">
 
 <div class="ui container grid">
     <div class="column centered">
         <div class="ui ">
-
-            <!-- <div class="ui menu top">
-                <a class="active item" data-tab="edit"><i class="icon edit sign"></i>Edit</a>
-                <a class="item" data-tab="summary">Summary</a>
-              </div> -->
             
         <div class="ui two item  menu top">
             <a class="item" data-tab="users">
@@ -78,36 +73,6 @@
                 </div>
               </div>
             </div>
-
-        </div>
-        <% }) %> 
-
-
-        <% leaves.forEach((leave) => { %> 
-          <div class="ui cards" data-tab="users">
-
-            <div class="card">
-                <div class="content">
-                  <% if (leave.status === 'Pending') { %> 
-                    <div class="ui yellow horizontal right floated tiny label"><%= leave.status %></div>
-                  <% } else if (leave.status === 'Approved') { %> 
-                    <div class="ui green horizontal right floated tiny label"><%= leave.status %></div>
-                  <% } else { %> 
-                    <div class="ui red horizontal right floated tiny label"><%= leave.status %></div>
-                  <% } %> 
-                  <div class="header">
-                    <%= leave.type %>
-                  </div>
-                  <div class="meta">
-                      <i class="calendar icon"></i>
-                      <%= leave.fromDate.toDateString().slice(0,10) %> -
-                      <%= leave.toDate.toDateString().slice(0,10) %> 
-                  </div>
-                  <div class="description">
-                    <%= leave.reason %> 
-                  </div>
-                </div>
-              </div>
 
         </div>
         <% }) %> 

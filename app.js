@@ -6,7 +6,8 @@ const methodOverride        = require('method-override'),
       flash                 = require('connect-flash'),
       passport              = require('passport'),
       LocalStrategy         = require('passport-local'),
-      passportLocalMongoose = require('passport-local-mongoose');
+      passportLocalMongoose = require('passport-local-mongoose'),
+      seedDB                = require('./seeds')
 
 // MODELS
 const User  = require('./models/user'),
@@ -27,6 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(flash());
+//seedDB();
 
 // Passport Configurations
 app.use(require('express-session')({

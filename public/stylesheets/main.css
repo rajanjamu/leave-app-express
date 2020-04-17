@@ -4,7 +4,7 @@
 
 
 
-#employee-index .column, #leave-new .column, #login .column, #register .column, #message .column {
+#employee-index .column, #manager-index .column, #leave-new .column, #login .column, #register .column, #message .column {
     max-width: 375px;
     padding: 0;
 }

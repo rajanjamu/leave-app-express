@@ -1,0 +1,71 @@
+<%- include('../partials/header') %> 
+
+<section id="employee-index">
+
+<div class="ui container grid">
+    <div class="column centered">
+        <div class="ui">
+          <div class="ui huge centered segment header">Dashboard</div>
+
+        <% leaves.forEach((leave) => { %> 
+          <div class="ui cards" data-tab="users">
+
+            <div class="card">
+                <div class="content">
+                  <% if (leave.status === 'Pending') { %> 
+                    <div class="ui yellow horizontal right floated tiny label"><%= leave.status %></div>
+                  <% } else if (leave.status === 'Approved') { %> 
+                    <div class="ui green horizontal right floated tiny label"><%= leave.status %></div>
+                  <% } else { %> 
+                    <div class="ui red horizontal right floated tiny label"><%= leave.status %></div>
+                  <% } %> 
+                  <div class="header">
+                    <%= leave.type %>
+                  </div>
+                  <div class="meta">
+                      <i class="calendar icon"></i>
+                      <%= leave.fromDate.toDateString().slice(0,10) %> -
+                      <%= leave.toDate.toDateString().slice(0,10) %> 
+                  </div>
+                  <div class="description">
+                    <%= leave.reason %> 
+                  </div>
+                </div>
+              </div>
+
+        </div>
+        <% }) %> 
+
+        <!-- <div class="ui cards" data-tab="users">
+
+            <div class="card">
+                <div class="content">
+                  <div class="ui yellow horizontal right floated tiny label">Pending</div>
+                  <div class="header">
+                    Manager Users Tab
+                  </div>
+                  <div class="meta">
+                      <i class="calendar icon"></i>
+                      
+                  </div>
+                </div>
+                <div class="extra content">
+                  <div class="ui two buttons">
+                    <div class="ui basic green button">Approve</div>
+                    <div class="ui basic red button">Decline</div>
+                  </div>
+                </div>
+              </div>
+
+        </div> -->
+
+
+        
+
+    </div>
+    </div>
+</div>
+
+</section>
+
+<%- include('../partials/footer') %> 

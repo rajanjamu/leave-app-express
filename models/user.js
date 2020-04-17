@@ -2,12 +2,13 @@ const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const userSchema = mongoose.Schema({
-    username: {
-        type: String,
-    },
-    password: {
-        type: String,
-    },
+    username: String,
+    password: String,
+    admin: { type: Boolean, default: false },
+    leaves: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Leave'
+    }]
 }, {
     timestamps: true
 });
