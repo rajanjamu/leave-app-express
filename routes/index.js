@@ -65,7 +65,7 @@ router.post('/login', passport.authenticate('local', {
     if (req.user.admin === true) {
         return res.redirect('/leaves/manager');
     }
-    
+
     res.redirect('/leaves/employee');
     req.flash('success', 'You are logged in!');
 });
