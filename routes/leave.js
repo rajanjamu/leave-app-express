@@ -12,7 +12,6 @@ router.get('/leaves/employee', isLoggedIn, (req, res) => {
 
 // INDEX - MANAGER
 router.get('/leaves/manager', isLoggedInAsManager, (req, res) => {
-
     Leave.find({}, (err, allLeaves) => {
         if (err) return console.log(err)
 
@@ -29,7 +28,11 @@ router.get('/leaves/new', isLoggedIn, (req, res) => {
 // CREATE
 router.post('/leaves', isLoggedIn, (req, res) => {
     Leave.create(req.body.leave, (err, createdLeave) => {
-        if (err) return console.log(err);
+        if (err) {
+            console.log(err);
+            req.flash('error', err.message);
+            return res.redirect('leaves/new');
+        }
 
         createdLeave.author._id = req.user._id;
         createdLeave.author.username = req.user.username;
