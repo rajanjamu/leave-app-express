@@ -12,9 +12,12 @@ router.get('/leaves/employee', isLoggedIn, (req, res) => {
 
 // INDEX - MANAGER
 router.get('/leaves/manager', isLoggedInAsManager, (req, res) => {
+
     Leave.find({}, (err, allLeaves) => {
         if (err) return console.log(err)
-        res.render('leaves/manager', { leaves: allLeaves })
+
+        const pendingCount = allLeaves.filter(leave => leave.status === 'Pending').length;
+        res.render('leaves/manager', { leaves: allLeaves, pendingCount: pendingCount })
     })
 });
 
