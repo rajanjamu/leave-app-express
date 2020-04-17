@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
 app.use(flash());
-//seedDB();
+seedDB();
 
 // Passport Configurations
 app.use(require('express-session')({
