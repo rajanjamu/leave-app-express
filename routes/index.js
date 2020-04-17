@@ -33,13 +33,13 @@ router.get('/logout', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    console.log(req.body);
     User.register(new User({username: req.body.username}), req.body.password, (err, user) => {
         if (err) {
             req.flash('error', err.message);
             return res.redirect('/register');
         }
         passport.authenticate('local')(req, res, () => {
+            console.log('success')
             req.flash('success', 'Welcome, ' + user.username);
             res.redirect('/leaves');
         });

@@ -2,18 +2,24 @@ const mongoose = require('mongoose');
 
 const leaveSchema = mongoose.Schema({
     type: String,
-    dateFrom: Date,
-    dateTo: Date,
+    fromDate: {
+        type: Date,
+    },
+    toDate: Date,
     reason: String,
-    status: String,
-    created: { type: Date, default: Date.now },
+    status: {
+        type: String,
+        default: 'Pending'
+    },
     author: {
-        id: {
+        _id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User'
         },
         username: String
     }
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Leave', leaveSchema);

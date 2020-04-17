@@ -7,7 +7,7 @@
         <div class="ui segment">
             <div class="ui huge header centered">Leave Application</div>
 
-            <form action="" class="ui form">
+            <form action="/leaves" method="POST" class="ui form">
                 <div class="field">
                     <label>From Date</label>
                     <div class="ui left icon input">
@@ -38,6 +38,8 @@
                         <input type="text" name="leave[reason]" required>
                     </div>
                 </div>
+                <input type="hidden" name=leave[author][_id] value="<%= currentUser._id %>">
+                <input type="hidden" name=leave[author][username] value="<%= currentUser.username %>">
                 <button class="ui fluid large submit button">Apply</button>
             </form>
 

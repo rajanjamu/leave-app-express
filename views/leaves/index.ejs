@@ -24,38 +24,95 @@
             </a>
         </div>
 
-        
-
+        <% leaves.forEach((leave) => { %> 
+      
         <div class="ui cards" data-tab="users">
 
             <div class="card">
               <div class="content">
-                <div class="ui yellow horizontal right floated tiny label">Pending</div>
-                <div class="ui horizontal right floated tiny label">Sick</div>
+
+                <% if (leave.status === 'Pending') { %> 
+                  <div class="ui yellow horizontal right floated tiny label"><%= leave.status %></div>
+                <% } else if (leave.status === 'Approved') { %> 
+                  <div class="ui green horizontal right floated tiny label"><%= leave.status %></div>
+                <% } else { %> 
+                  <div class="ui red horizontal right floated tiny label"><%= leave.status %></div>
+                <% } %> 
+
+                
+                <div class="ui horizontal right floated tiny label"><%= leave.type %></div>
                 <div class="header">
-                  Manager Leaves Tab
+                  <%= leave.author.username %> 
                 </div>
                 <div class="meta">
                     <i class="calendar icon"></i>
-                    <%= Date(Date.now()).slice(0,10) %> -
-                    <%= Date(Date.now()).slice(0,10) %> 
+                    <%= leave.fromDate.toDateString().slice(0,10) %> -
+                    <%= leave.toDate.toDateString().slice(0,10) %> 
                 </div>
                 <div class="description">
-                  Need to attend sister marriage urgently
+                  <%= leave.reason %> 
                 </div>
               </div>
               <div class="extra content">
                 <div class="ui two buttons">
-                  <div class="ui basic green button">Approve</div>
-                  <div class="ui basic red button">Decline</div>
+                  <% if (!(leave.status === 'Pending')) { %> 
+                    <form class="ui" action="/leaves/<%= leave._id %>?_method=PUT" method="POST">
+                      <input type="hidden" name="leave[status]" value="Pending">
+                      <button type="submit" class="ui basic yellow button">Pending</button>
+                    </form>
+                  <% } %> 
+                  <% if (!(leave.status === 'Approved')) { %> 
+                    <form class="ui" action="/leaves/<%= leave._id %>?_method=PUT" method="POST">
+                      <input type="hidden" name="leave[status]" value="Approved">
+                      <button type="submit" class="ui basic green button">Approve</button>
+                    </form>
+                  <% } %> 
+                  <% if (!(leave.status === 'Rejected')) { %> 
+                    <form class="ui" action="/leaves/<%= leave._id %>?_method=PUT" method="POST">
+                      <input type="hidden" name="leave[status]" value="Rejected">
+                      <button type="submit" class="ui basic red button">Decline</button>
+                    </form>
+                  <% } %> 
+                  
+                  
                 </div>
               </div>
             </div>
 
         </div>
+        <% }) %> 
 
 
-        <div class="ui cards" data-tab="users">
+        <% leaves.forEach((leave) => { %> 
+          <div class="ui cards" data-tab="users">
+
+            <div class="card">
+                <div class="content">
+                  <% if (leave.status === 'Pending') { %> 
+                    <div class="ui yellow horizontal right floated tiny label"><%= leave.status %></div>
+                  <% } else if (leave.status === 'Approved') { %> 
+                    <div class="ui green horizontal right floated tiny label"><%= leave.status %></div>
+                  <% } else { %> 
+                    <div class="ui red horizontal right floated tiny label"><%= leave.status %></div>
+                  <% } %> 
+                  <div class="header">
+                    <%= leave.type %>
+                  </div>
+                  <div class="meta">
+                      <i class="calendar icon"></i>
+                      <%= leave.fromDate.toDateString().slice(0,10) %> -
+                      <%= leave.toDate.toDateString().slice(0,10) %> 
+                  </div>
+                  <div class="description">
+                    <%= leave.reason %> 
+                  </div>
+                </div>
+              </div>
+
+        </div>
+        <% }) %> 
+
+        <!-- <div class="ui cards" data-tab="users">
 
             <div class="card">
                 <div class="content">
@@ -65,7 +122,7 @@
                   </div>
                   <div class="meta">
                       <i class="calendar icon"></i>
-                      <%= Date(Date.now()).slice(0,10) %>
+                      
                   </div>
                 </div>
                 <div class="extra content">
@@ -76,89 +133,11 @@
                 </div>
               </div>
 
-        </div>
-
-
-        <div class="ui cards" data-tab="users">
-
-            <div class="card">
-                <div class="content">
-                  <div class="ui yellow horizontal right floated tiny label">Pending</div>
-                  <div class="header">
-                    Employee Leaves (Casual)
-                  </div>
-                  <div class="meta">
-                      <i class="calendar icon"></i>
-                      <%= Date(Date.now()).slice(0,10) %> -
-                      <%= Date(Date.now()).slice(0,10) %> 
-                  </div>
-                  <div class="description">
-                    Need to attend sister marriage urgently
-                  </div>
-                </div>
-              </div>
-
-        </div>
-
-          <!-- <div class="ui attached padded segment">
-            <div class="ui relaxed divided list">
-                <div class="item">
-                    <div class="ui vertical icon right floated menu">
-                        <a class="item"><i class="check icon"></i></a>
-                        <a class="item"><i class="close icon"></i></a>
-                    </div>
-                    <div class="content">
-                        <div>
-                            <i class="user icon"></i><em>Rajan</em>
-                            <div class="ui right floated">
-                                <i class="calendar icon"></i>
-                               
-                            </div>
-                        </div>
-                        <h3 class="header">Rajan:Need to attend sister marriage Hey Ram</h3>
-                        
-                        <div class="ui yellow horizontal label">Pending</div>
-                        <div class="ui horizontal label">Casual</div>
-                        <a href="#" class="ui horizontal label centered right floated"><i class="check icon"></i></a>
-                        <a href="#" class="ui horizontal label right floated"><i class="close icon"></i></a>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-
-        <div class="ui attached padded segment">
-            <div class="ui relaxed divided list">
-                <div class="item">
-                    <div class="content">
-                    <h3 class="header">Not feeling well</h3>
-                    <p>
-                        <i class="user icon"></i><em>Rajan</em>
-                        <i class="calendar icon"></i>
-                      
-                    </p>
-                    <div class="ui teal horizontal label">Approved</div>
-                    <div class="ui horizontal label">Sick</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="ui attached padded segment">
-            <div class="ui relaxed divided list">
-                <div class="item">
-                    <div class="content">
-                    <h3 class="header">Going on a summer vacation</h3>
-                    <p>
-                        <i class="calendar icon"></i>
-                        
-                    </p>
-                    <div class="ui orange horizontal label">Rejected</div>
-                    <div class="ui horizontal label">Other</div>
-                    </div>
-                </div>
-            </div>
         </div> -->
+
+
+        
+
     </div>
     </div>
 </div>
