@@ -5,7 +5,14 @@ const express   = require('express'),
 
 // ROOT
 router.get('/', (req, res) => {
-    res.redirect('/leaves/employee');
+    if (req.user) {
+        if (req.user.admin === true) {
+            return res.redirect('/leaves/manager');
+        } else {
+            return res.redirect('/leaves/employee');
+        }
+    }
+    res.redirect('/login');
 });
 
 // REGISTER FORM
