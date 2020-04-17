@@ -2,9 +2,13 @@
     margin-left: 0;
 }
 
+#message .column {
+    margin-bottom: 14px;
+    max-width: 375px;
+    padding: 0;
+}
 
-
-#employee-index .column, #manager-index .column, #leave-new .column, #login .column, #register .column, #message .column {
+#employee-index .column, #manager-index .column, #leave-new .column, #login .column, #register .column {
     max-width: 375px;
     padding: 0;
 }
